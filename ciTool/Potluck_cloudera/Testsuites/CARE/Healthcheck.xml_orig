@@ -1,0 +1,34 @@
+<suite>
+    <MailTo>priyanka.gupta@guavus.com</MailTo>
+   <section name="PSQL">
+        <testcase description="Check PSQL process">
+            <script>solution/CARE/Sanity/check_psql_processes.py</script>
+        </testcase>
+   </section>
+   <section name="HBASE">
+       <testcase description="Verify hbase master and region server process are running">
+            <script>solution/CARE/Sanity/check_hbase_process.py</script>
+        </testcase>
+   </section>
+   <section name="KAFKA">
+       <testcase description="Verify kafka server process are running">
+            <script>solution/CARE/Sanity/check_kafka_process.py</script>
+        </testcase>
+   </section>
+   <section name="KAFKA">
+       <testcase description="Verify kafka schema registery process are running">
+            <script>solution/CARE/Sanity/check_kafka_schema_process.py</script>
+        </testcase>
+    </section
+    <section name="KAFKA">
+       <testcase description="Verify kafka configurations">
+            <script>solution/CARE/Sanity/verify_kafka_config.py</script>
+        </testcase>
+    </section>
+    <section name="HBASE">
+       <testcase description="Verify hbase configurations">
+            <script>solution/CARE/Sanity/verify_hbase_config.py</script>
+        </testcase>
+   </section>
+</suite>
+

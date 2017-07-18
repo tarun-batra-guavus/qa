@@ -1,0 +1,31 @@
+"""
+This function will reaturn the oozie id for the running job mentioned in the jobname variable.
+
+"""
+
+from potluck.nodes import connect, get_nodes_by_type, find_master
+from potluck.logging import logger
+from potluck.reporting import report
+from potluck import env
+import re
+import time
+import subprocess
+
+namenodes = get_nodes_by_type("NameNode")
+master_namenode=find_master(namenodes)
+master_namenode.setMode("pmx")
+master_namenode.sendCmd("subshell oozie")
+
+jobname=env.config.jobname
+#workflow_out = master_namenode.sendCmd("show workflow RUNNING jobs" , ignoreErrors=True)
+def getjobid(workflow,jobname):
+    if jobname in workflow:
+        jobid= re.search(r'(.*)\w\s+'+jobname,workflow, flags=re.I).group(1)
+#        logger.info("job id is "+jobid)
+        return jobid
+    else:
+        report.fail("No job running with name:"+jobname)
+
+
+#getjobid(jobname)
+#jobid=getjobid(workflow_out,jobname)

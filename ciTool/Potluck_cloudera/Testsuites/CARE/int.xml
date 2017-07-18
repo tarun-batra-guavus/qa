@@ -1,0 +1,8 @@
+<suite>
+    <MailTo>priyanka.gupta@guavus.com</MailTo>
+    <section name="AZKABAN">
+        <testcase description="Verify azkaban process is running on master and standby namenode">
+            <script>solution/CARE/Sanity/check_azkaban_process.py</script>
+        </testcase>
+    </section>
+</suite>

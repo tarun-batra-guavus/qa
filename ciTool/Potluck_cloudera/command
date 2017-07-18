@@ -1,0 +1,1 @@
+./harness -t Testbeds/bizreflex-qa-testbed-RUBIX -s Testsuites/bizreflex/RUBIX_Basic_GNS.xml

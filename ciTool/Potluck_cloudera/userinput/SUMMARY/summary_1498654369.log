@@ -1,0 +1,50 @@
+#Stopping all job on respective nodes
+#Jobname,command,node,role,status 
+logdownloader,curl -k --get --data "session.id=`curl -k -X POST --data "action=login&username=azkaban&password=azkaban" http://192.168.113.191:8888 |grep "session.id" |cut -d'"' -f4`&ajax=cancelFlow&execid=9641" http://192.168.113.191:8888/executor,NN2 <192.168.113.33>,namenode,pass 
+rpm,yum -y remove reflex-datafactory-5.1.rc1-1.el6.x86_64,NN2 <192.168.113.33>,namenode,pass 
+logdownloader,curl -k --get --data "session.id=`curl -k -X POST --data "action=login&username=azkaban&password=azkaban" http://192.168.113.191:8888 |grep "session.id" |cut -d'"' -f4`&ajax=cancelFlow&execid=9641" http://192.168.113.191:8888/executor,NN1 <192.168.113.38>,namenode,pass 
+rpm,yum -y remove reflex-datafactory-5.1.rc1-1.el6.x86_64,NN1 <192.168.113.38>,namenode,pass 
+rpm,yum -y remove reflex-datafactory-5.1.rc1-1.el6.x86_64,LB1 <192.168.113.95>,datanode,pass 
+rpm,yum -y remove reflex-datafactory-5.1.rc1-1.el6.x86_64,LB2 <192.168.113.31>,datanode,pass 
+rpm,yum -y remove reflex-datafactory-5.1.rc1-1.el6.x86_64,MGMT <192.168.113.53>,datanode,pass 
+rpm,yum -y remove reflex-datafactory-5.1.rc1-1.el6.x86_64,DN6 <192.168.113.32>,datanode,pass 
+rpm,yum -y remove reflex-datafactory-5.1.rc1-1.el6.x86_64,DN1 <192.168.113.39>,datanode,pass 
+rpm,yum -y remove reflex-datafactory-5.1.rc1-1.el6.x86_64,DN2 <192.168.113.44>,datanode,pass 
+
+#Stopping all processes on respective nodes
+#Processname,command,node,role,status 
+tomcat,systemctl stop tomcat.service,NN2 <192.168.113.33>,namenode,pass 
+tomcat,systemctl stop tomcat.service,NN1 <192.168.113.38>,namenode,pass 
+
+#Taking backup of config files on respective nodes
+#file_path,node,role,status 
+/opt/mrx/globe/etc/extract.conf,NN2 <192.168.113.33>,namenode,pass 
+/opt/mrx/globe/etc/extract.conf,NN1 <192.168.113.38>,namenode,pass 
+
+#Installing RPM on respective nodes
+#rpmname,node,role,status 
+yum -y install reflex-datafactory-5.1.rc1-1.el6.x86_64.rpm,NN2 <192.168.113.33>,namenode,pass 
+yum -y install reflex-datafactory-5.1.rc1-1.el6.x86_64.rpm,NN1 <192.168.113.38>,namenode,pass 
+yum -y install reflex-datafactory-5.1.rc1-1.el6.x86_64.rpm,LB1 <192.168.113.95>,datanode,pass 
+yum -y install reflex-datafactory-5.1.rc1-1.el6.x86_64.rpm,LB2 <192.168.113.31>,datanode,pass 
+yum -y install reflex-datafactory-5.1.rc1-1.el6.x86_64.rpm,MGMT <192.168.113.53>,datanode,pass 
+yum -y install reflex-datafactory-5.1.rc1-1.el6.x86_64.rpm,DN6 <192.168.113.32>,datanode,pass 
+yum -y install reflex-datafactory-5.1.rc1-1.el6.x86_64.rpm,DN1 <192.168.113.39>,datanode,pass 
+yum -y install reflex-datafactory-5.1.rc1-1.el6.x86_64.rpm,DN2 <192.168.113.44>,datanode,pass 
+
+#Copying backup file to original location on respective nodes
+#file_path,node,role,status 
+/opt/mrx/globe/etc/extract.conf,NN2 <192.168.113.33>,namenode,pass 
+/home/CD/backup/namenode/extract.conf,NN2 <192.168.113.33>,namenode,pass 
+/opt/mrx/globe/etc/extract.conf,NN1 <192.168.113.38>,namenode,pass 
+/home/CD/backup/namenode/extract.conf,NN1 <192.168.113.38>,namenode,pass 
+
+#Applying MOP on respective nodes
+#mop_command,node,role,status 
+/data/deepanshu/schedule.sh edrflowjobs 06/28/17 9,NN2 <192.168.113.33>,namenode,fail 
+/data/deepanshu/schedule.sh edrflowjobs 06/28/17 9,NN1 <192.168.113.38>,namenode,fail 
+
+#Starting all processes on respective nodes
+#Processname,command,node,role,status 
+tomcat,systemctl start tomcat.service,NN2 <192.168.113.33>,namenode,pass 
+tomcat,systemctl start tomcat.service,NN1 <192.168.113.38>,namenode,pass 

@@ -1,0 +1,14 @@
+
+#Stopping all processes on respective nodes
+#Processname,command,node,role,status 
+tomcat,systemctl stop tomcat.service,NN2 <192.168.113.33>,namenode,pass 
+tomcat,systemctl stop tomcat.service,NN1 <192.168.113.38>,namenode,pass 
+testtomcat,systemctl stop tomcat1.service,NN2 <192.168.113.33>,namenode,fail 
+testtomcat,systemctl stop tomcat1.service,NN1 <192.168.113.38>,namenode,fail 
+
+#Starting all processes on respective nodes
+#Processname,command,node,role,status 
+testtomcat,systemctl start tomcat1.service,NN2 <192.168.113.33>,namenode,fail 
+testtomcat,systemctl start tomcat1.service,NN1 <192.168.113.38>,namenode,fail 
+tomcat,systemctl start tomcat.service,NN2 <192.168.113.33>,namenode,pass 
+tomcat,systemctl start tomcat.service,NN1 <192.168.113.38>,namenode,pass 

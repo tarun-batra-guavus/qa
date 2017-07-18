@@ -1,0 +1,5 @@
+password=admin@123
+ip=127.0.0.1
+nasPath=/data/retention
+nasIp=192.168.117.91
+user=

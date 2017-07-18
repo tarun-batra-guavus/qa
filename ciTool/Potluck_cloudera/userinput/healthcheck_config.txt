@@ -1,0 +1,20 @@
+#Role:filenames in colon seperated format
+HMASTER,/etc/hbase/conf/hbase-site.xml
+HMASTER,/etc/hbase/conf/hbase-env.sh
+HIVE,/etc/hive/conf/hive-site.xml
+KAFKA,/etc/kafka/server.properties
+KAFKA-SCHEMA,/etc/schema-registry/schema-registry.properties
+KAFKA-SCHEMA,/etc/schema-registry/connect-avro-distributed.properties
+AZKABAN,/opt/azkaban/solo-server/conf/azkaban.properties
+AZKABAN,/etc/azkacli/azkacli.cfg
+AZKABAN,/etc/pgha-watchdog-azkaban/azkaban-watchdog.ini
+AZKABAN_PROJECT,/opt/azkaban/solo-server/projects/25.1/
+ZOOKEEPER,/etc/zookeeper/conf/zoo.cfg
+TALEND,/opt/mrx/globe/etc/extract.conf
+REDIS,/opt/redis/redis_6379.conf
+REDIS,/opt/redis/redis_6380.conf
+HDFS,/etc/hadoop/conf/hdfs-site.xml
+HDFS,/etc/hadoop/conf/yarn-site.xml
+HDFS,/etc/hadoop/conf/core-site.xml
+HDFS,/etc/hadoop/conf/mapred-site.xml
+SYSTEMD,/etc/systemd/system

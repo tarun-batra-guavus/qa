@@ -1,0 +1,5 @@
+#Test Script,Execution = Y/N
+CDR_LDM_JOB.py,Y
+CDR_CDM_JOB.py,N
+CDR_CDM_DAILY_JOB.py,N
+CDR_LDM_JOB_multi_iteration.py,N

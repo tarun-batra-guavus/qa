@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+/**
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<configuration>
+ <property>
+        <name>hbase.cluster.distributed</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>zookeeper.session.timeout</name>
+        <value>3000000</value>
+    </property>
+ <property>
+    <name>zookeeper.znode.parent</name>
+    <value>/hbase</value>
+  </property>
+    <property>
+        <name>hbase.zookeeper.timeout</name>
+        <value>6000000</value>
+    </property>
+    <property>
+        <name>hbase.rootdir</name>
+        <value>hdfs://Carefuncnn:8020/hbase</value>
+    </property>
+    <property>
+        <name>hbase.zookeeper.quorum</name>
+        <value>Carefuncnn,Carefuncdn1,Carefuncdn2</value>
+    </property>
+    <property>
+        <name>hbase.zookeeper.property.clientPort</name>
+        <value>2181</value>
+    </property>
+    <property>
+        <name>hbase.rpc.timeout</name>
+        <value>600000</value>
+    </property>
+    <property>
+        <name>hbase.client.scanner.timeout.period</name>
+        <value>600000</value>
+</property>
+    <property>
+        <name>hbase.client.scanner.timeout.period</name>
+        <value>600000</value>
+    </property>
+    <!-- Performance related configs -->
+    <property>
+        <name>hbase.hstore.compactionThreshold</name>
+        <value>3</value>
+    </property>
+    <property>
+        <name>hbase.regionserver.maxlogs</name>
+        <value>600</value>
+    </property>
+    <property>
+        <name>hbase.ipc.server.callqueue.read.ratio</name>
+        <value>0.6</value>
+    </property>
+    <property>
+        <name>hbase.ipc.server.callqueue.scan.ratio</name>
+        <value>0.5</value>
+    </property>
+    <property>
+        <name>hbase.ipc.server.callqueue.handler.factor</name>
+        <value>0.2</value>
+    </property>
+    <property>
+        <name>hbase.regionserver.regionSplitLimit</name>
+        <value>1500</value>
+    </property>
+    <property>
+        <name>hbase.regionserver.global.memstore.size</name>
+        <!--72 GB ~ 60% Heap-->
+        <value>0.6</value>
+    </property>
+    <property>
+        <name>hbase.regionserver.global.memstore.size.lower.limit</name>
+        <!-- 68.4 GB 57% Heap -->
+        <value>0.5</value>
+    </property>
+    <property>
+        <name>hfile.block.cache.size</name>
+        <value>0.15</value>
+    </property>
+    <property>
+        <name>hbase.hregion.memstore.flush.size</name>
+        <!-- 128MB -->
+        <value>134217728</value>
+    </property>
+    <property>
+        <name>hbase.hregion.max.filesize</name>
+        <!-- 3GB -->
+        <value>3221225472</value>
+    </property>
+<property>
+        <name>hbase.master.wait.on.regionservers.mintostart</name>
+        <value>2</value>
+    </property>
+    <property>
+        <name>hbase.client.scanner.caching</name>
+        <value>10000</value>
+    </property>
+    <property>
+        <name>hbase.regionserver.handler.count</name>
+        <value>80</value>
+    </property>
+    <property>
+        <name>hbase.table.sanity.checks</name>
+        <value>false</value>
+    </property>
+    <property>
+        <name>phoenix.stats.guidepost.per.region</name>
+        <value>1</value>
+    </property>
+    <property>
+        <name>hbase.regionserver.optionalcacheflushinterval</name>
+        <!-- 1 hour -->
+        <value>3600000</value>
+    </property>
+    <property>
+        <name>hbase.balancer.period</name>
+<value>300000</value>
+    </property>
+    <property>
+        <name>hbase.storescanner.parallel.seek.enable</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hbase.storescanner.parallel.seek.threads</name>
+        <value>10</value>
+    </property>
+    <property>
+        <name>hbase.regionserver.thread.compaction.large</name>
+        <value>5</value>
+    </property>
+    <property>
+        <name>hbase.regionserver.thread.compaction.small</name>
+        <value>6</value>
+    </property>
+    <property>
+        <name>hbase.hstore.compaction.kv.max</name>
+        <value>10000</value>
+    </property>
+    <property>
+        <name>hbase.offpeak.start.hour</name>
+        <value>0</value>
+    </property>
+ <property>
+        <name>hbase.offpeak.end.hour</name>
+        <value>6</value>
+    </property>
+    <property>
+        <name>hbase.regionserver.throughput.controller</name>
+        <value>org.apache.hadoop.hbase.regionserver.compactions.PressureAwareCompactionThroughputController</value>
+    </property>
+    <property>
+        <name>hbase.hstore.compaction.throughput.higher.bound</name>
+        <value>52428800</value>
+        <description>The default is 50 MB/sec</description>
+    </property>
+    <property>
+        <name>hbase.hstore.compaction.throughput.lower.bound</name>
+        <value>31457280</value>
+        <description>The default is 30 MB/sec</description>
+    </property>
+    <property>
+        <name>hbase.hstore.compaction.throughput.offpeak</name>
+        <value>9223372036854775807</value>
+        <description>The default is Long.MAX_VALUE, which effectively means no limitation</description>
+    </property>
+    <property>
+        <name>hbase.hstore.compaction.throughput.tune.period</name>
+        <value>60000</value>
+    </property>
+    <property>
+        <name>hbase.regionserver.wal.enablecompression</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hbase.regionserver.hlog.blocksize</name>
+        <value>134217728</value>
+    </property>
+    <property>
+        <name>hbase.regionserver.logroll.multiplier</name>
+        <value>0.5</value>
+    </property>
+    <property>
+        <name>hbase.ipc.warn.response.time</name>
+        <value>100</value>
+    </property>
+    <!--property>
+        <name>hbase.ipc.warn.response.size</name>
+        <value>1200</value>
+</property-->
+</configuration>

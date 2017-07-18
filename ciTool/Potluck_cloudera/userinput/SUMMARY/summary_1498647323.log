@@ -1,0 +1,18 @@
+#Stopping all job on respective nodes
+#Jobname,command,node,role,status 
+logdownloader,curl -k --get --data "session.id=`curl -k -X POST --data "action=login&username=azkaban&password=azkaban" http://192.168.113.191:8888 |grep "session.id" |cut -d'"' -f4`&ajax=cancelFlow&execid=9638" http://192.168.113.191:8888/executor,NN2 <192.168.113.33>,namenode,pass 
+logdownloader,curl -k --get --data "session.id=`curl -k -X POST --data "action=login&username=azkaban&password=azkaban" http://192.168.113.191:8888 |grep "session.id" |cut -d'"' -f4`&ajax=cancelFlow&execid=9638" http://192.168.113.191:8888/executor,NN1 <192.168.113.38>,namenode,pass 
+
+#Stopping all processes on respective nodes
+#Processname,command,node,role,status 
+tomcat,systemctl stop tomcat.service,NN2 <192.168.113.33>,namenode,pass 
+tomcat,systemctl stop tomcat.service,NN1 <192.168.113.38>,namenode,pass 
+
+#Taking backup of config files on respective nodes
+#file_path,node,role,status 
+/opt/mrx/globe/etc/extract.conf,NN2 <192.168.113.33>,namenode,pass 
+/opt/mrx/globe/etc/extract.conf,NN1 <192.168.113.38>,namenode,pass 
+
+#Installing RPM on respective nodes
+#rpmname,node,role,status 
+yum -y install reflex-datafactory-5.1.rc1-1.el6.x86_64.rpm,NN2 <192.168.113.33>,namenode,fail 

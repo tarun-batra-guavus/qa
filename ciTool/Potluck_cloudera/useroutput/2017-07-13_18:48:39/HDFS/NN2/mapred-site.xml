@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+    </property>
+    <!-- History server properties -->
+    <property>
+        <name>mapreduce.jobhistory.address</name>
+        <value>marxnn1.guavus.com:10020</value>
+    </property>
+    <property>
+        <name>mapreduce.jobhistory.webapp.address</name>
+        <value>marxnn1.guavus.com:19888</value>
+    </property>
+    <!-- Staging Dir -->
+    <property>
+        <name>yarn.app.mapreduce.am.staging-dir</name>
+        <value>/yarnuser</value>
+    </property>
+
+    <property>
+        <name>mapreduce.map.memory.mb</name>
+        <value>4096</value>
+    </property>
+    <property>
+        <name>mapreduce.reduce.memory.mb</name>
+        <value>8192</value>
+    </property>
+
+    <property>
+        <name>mapreduce.map.java.opts</name>
+        <value>-Xmx3072m</value>
+    </property>
+    <property>
+        <name>mapreduce.reduce.java.opts</name>
+        <value>-Xmx6144m</value>
+    </property>
+    <property>
+        <name>jobtracker.thrift.address</name>
+        <value>0.0.0.0:9290</value>
+    </property>
+    <property>
+        <name>mapred.jobtracker.plugins</name>
+        <value>org.apache.hadoop.thriftfs.ThriftJobTrackerPlugin</value>
+        <description>Comma-separated list of jobtracker plug-ins to be activated.</description>
+   </property>
+</configuration>

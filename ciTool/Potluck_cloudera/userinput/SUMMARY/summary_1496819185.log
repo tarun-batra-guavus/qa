@@ -1,0 +1,50 @@
+#Stopping all job on respective nodes
+#Jobname,command,node,role,status 
+ntp,service ntpd stop,Node1 <192.168.162.119>,refinery,fail 
+syslog,service rsyslog stop,Node1 <192.168.162.119>,refinery,pass 
+ntp,service ntpd stop,Node2 <192.168.162.129>,pump,fail 
+syslog,service rsyslog stop,Node2 <192.168.162.129>,pump,pass 
+
+#Stopping all processes on respective nodes
+#Processname,command,node,role,status 
+Refinery,/etc/init.d/pipeline_refinery stop,Node1 <192.168.162.119>,refinery,pass 
+Pump,/etc/init.d/pipeline_pump stop,Node2 <192.168.162.129>,pump,pass 
+
+#Taking backup of config files on respective nodes
+#file_path,node,role,status 
+/opt/pipeline/refinery/config/schemas/ComcastConfigTypes.xsd,Node1 <192.168.162.119>,refinery,pass 
+/opt/pipeline/refinery/config/schemas/PipelineConfigTypes.xsd,Node1 <192.168.162.119>,refinery,pass 
+/opt/pipeline/refinery/config/valve.xml,Node1 <192.168.162.119>,refinery,pass 
+/opt/pipeline/pump/config/schemas/ComcastConfigTypes.xsd,Node2 <192.168.162.129>,pump,pass 
+/opt/pipeline/pump/config/schemas/PipelineConfigTypes.xsd,Node2 <192.168.162.129>,pump,pass 
+/opt/pipeline/pump/config/valve.xml,Node2 <192.168.162.129>,pump,pass 
+
+#Installing RPM on respective nodes
+#rpmname,node,role,status 
+yum install tarun,Node2 <192.168.162.129>,pump,fail 
+yum install tarun,Node1 <192.168.162.119>,refinery,fail 
+
+#Copying backup file to original location on respective nodes
+#file_path,node,role,status 
+/opt/pipeline/refinery/config/schemas/ComcastConfigTypes.xsd,Node1 <192.168.162.119>,refinery,pass 
+/home/CD/backup/refinery/ComcastConfigTypes.xsd,Node1 <192.168.162.119>,refinery,pass 
+/opt/pipeline/refinery/config/schemas/PipelineConfigTypes.xsd,Node1 <192.168.162.119>,refinery,pass 
+/home/CD/backup/refinery/PipelineConfigTypes.xsd,Node1 <192.168.162.119>,refinery,pass 
+/opt/pipeline/refinery/config/valve.xml,Node1 <192.168.162.119>,refinery,pass 
+/home/CD/backup/refinery/valve.xml,Node1 <192.168.162.119>,refinery,pass 
+/opt/pipeline/pump/config/schemas/ComcastConfigTypes.xsd,Node2 <192.168.162.129>,pump,pass 
+/home/CD/backup/pump/ComcastConfigTypes.xsd,Node2 <192.168.162.129>,pump,pass 
+/opt/pipeline/pump/config/schemas/PipelineConfigTypes.xsd,Node2 <192.168.162.129>,pump,pass 
+/home/CD/backup/pump/PipelineConfigTypes.xsd,Node2 <192.168.162.129>,pump,pass 
+/opt/pipeline/pump/config/valve.xml,Node2 <192.168.162.129>,pump,pass 
+/home/CD/backup/pump/valve.xml,Node2 <192.168.162.129>,pump,pass 
+
+#Applying MOP on respective nodes
+#mop_command,node,role,status 
+python /data/1.py,Node1 <192.168.162.119>,refinery,fail 
+python /data/2.py,Node2 <192.168.162.129>,pump,fail 
+
+#Starting all processes on respective nodes
+#Processname,command,node,role,status 
+Pump,/etc/init.d/pipeline_pump start,Node2 <192.168.162.129>,pump,pass 
+Refinery,/etc/init.d/pipeline_refinery start,Node1 <192.168.162.119>,refinery,pass 

@@ -1,0 +1,13 @@
+<suite>
+    <MailTo>priyanka.gupta@guavus.com</MailTo>
+    <section name="HIVE">
+        <testcase description="Verify hive configurations on master and standby namenode">
+            <script>solution/CARE/Sanity/verify_hive_config.py</script>
+        </testcase>
+    </section>
+    <section name="HBASE">
+        <testcase description="Verify hbase configurations on master and standby namenode">
+            <script>solution/CARE/Sanity/verify_hbase_config.py</script>
+        </testcase>
+    </section>
+</suite>

@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!-- Configuration created by the Hadoop-CDH4-CentOS Recipe -->
+<configuration>
+    <property>
+        <name>dfs.datanode.max.transfer.threads</name>
+        <value>16384</value>
+    </property>
+    <property>
+        <name>dfs.datanode.du.reserved</name>
+        <value>16106127360</value>
+        <description>Reserved space in bytes per volume. Always leave this much space free for non dfs use.</description>
+    </property>
+    <property>
+        <name>dfs.datanode.fsdataset.volume.choosing.policy</name>
+        <value>org.apache.hadoop.hdfs.server.datanode.fsdataset.AvailableSpaceVolumeChoosingPolicy</value>
+    </property>
+    <property>
+        <name>dfs.datanode.available-space-volume-choosing-policy.balanced-space-threshold</name>
+        <value>10737418240</value>
+    </property>
+    <property>
+        <name>dfs.datanode.available-space-volume-choosing-policy.balanced-space-preference-fraction</name>
+        <value>0.75</value>
+    </property>
+
+    <property>
+        <name>dfs.permissions.enabled</name>
+        <value>false</value>
+    </property>
+    <property>
+        <name>dfs.permissions.superusergroup</name>
+        <value>hadoop</value>
+    </property>
+    <property>
+        <name>dfs.webhdfs.enabled</name>
+        <value>true</value>
+    </property>
+
+    <!-- Namenode Configuration -->
+    <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>file:///opt/namenode</value>
+    </property>
+    <!-- Datanode Configuration according to @node[:hadoop][:hdfs][:datanode] -->
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>file:///opt/data01/data</value>
+    </property>
+    <!-- The number of volumes that are allowed to fail before a datanode stops offering service. -->
+    <property>
+        <name>dfs.datanode.failed.volumes.tolerated</name>
+        <value>0</value>
+    </property>
+
+
+    <!-- Impala Specific Configuration: Enable short-circuit reads  -->
+    <property>
+        <name>dfs.client.read.shortcircuit</name>
+        <value>true</value>
+    </property>
+
+    <property>
+        <name>dfs.domain.socket.path</name>
+        <value>/var/run/hadoop-hdfs/dn._PORT</value>
+    </property>
+
+    <property>
+        <name>dfs.client.file-block-storage-locations.timeout.millis</name>
+        <value>10000</value>
+    </property>
+    <!-- Impala Specific Configuration: Enable short-circuit reads: END -->
+
+    <!-- Impala Specific Configuration: Enable block-location tracking -->
+    <property>
+        <name>dfs.datanode.hdfs-blocks-metadata.enabled</name>
+        <value>true</value>
+    </property> 
+    <!-- Impala Specific Configuration: Enable block-location tracking: END -->
+    <!-- HDFS replication factor  -->
+    <property>
+        <name>dfs.replication</name>
+        <value>2</value>
+    </property>
+    <!-- HDFS decommisioning DN File -->
+    <property>
+        <name>dfs.hosts.exclude</name>
+        <value>/etc/hadoop/conf/dfs.exclude</value>
+        <description>Path to file with nodes to exclude.</description>
+    </property>
+    <!-- HDFS blocksize -->
+    <property>
+        <name>dfs.blocksize</name>
+        <value>128m</value>
+    </property>
+<!-- HA Configuration -->
+    <property>
+        <name>dfs.nameservices</name>
+        <value>srx</value>
+    </property>
+    <property>
+        <name>dfs.ha.namenodes.srx</name>
+        <value>marxnn1.guavus.com,marxnn2.guavus.com</value>
+    </property>
+    <property>
+        <name>dfs.namenode.rpc-address.srx.marxnn1.guavus.com</name>
+        <value>marxnn1.guavus.com:8020</value>
+    </property>
+    <property>
+        <name>dfs.namenode.rpc-address.srx.marxnn2.guavus.com</name>
+        <value>marxnn2.guavus.com:8020</value>
+    </property>
+    <property>
+        <name>dfs.namenode.http-address.srx.marxnn1.guavus.com</name>
+        <value>marxnn1.guavus.com:50070</value>
+    </property>
+    <property>
+        <name>dfs.namenode.http-address.srx.marxnn2.guavus.com</name>
+        <value>marxnn2.guavus.com:50070</value>
+    </property>
+    <property>
+        <name>dfs.namenode.shared.edits.dir</name>
+        <value>qjournal://marxdn1.guavus.com:8485;marxdn2.guavus.com:8485;marxdn3.guavus.com:8485/srx</value>
+    </property>
+    <property>
+        <name>dfs.journalnode.edits.dir</name>
+        <value>/var/lib/hadoop-hdfs/journalnode_edits</value>
+    </property>
+    <property>
+        <name>dfs.ha.automatic-failover.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>dfs.client.failover.proxy.provider.srx</name>
+        <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+    </property>
+    <property>
+        <name>dfs.ha.fencing.methods</name>
+        <value>sshfence</value>
+    </property>
+    <property>
+        <name>dfs.ha.fencing.ssh.private-key-files</name>
+        <value>/var/lib/hadoop-hdfs/.ssh/id_dsa</value>
+    </property>
+</configuration>

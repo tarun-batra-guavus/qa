@@ -1,0 +1,2 @@
+#Service Name,Stop Command,Start Command,Role,exit_criterion
+tomcat::::systemctl stop hbase-master.service::::systemctl start hbase-master.service::::namenode::::yes

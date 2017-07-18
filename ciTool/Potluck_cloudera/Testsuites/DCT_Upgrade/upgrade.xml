@@ -1,0 +1,8 @@
+<suite>
+    <MailTo>tarun.batra@guavus.com</MailTo>
+    <section name="UPGRADE">
+        <testcase description="Verify upgrade on all nodes of setup">
+            <script>solution/Generic/DCT_Upgrade/upgrade_final_new_version.py</script>
+        </testcase>
+    </section>
+</suite>

@@ -1,0 +1,3 @@
+#Module,keyword found in rpm,exit_criterion
+pump,PipelinePump,no
+refinery,PipelineRefinery,no

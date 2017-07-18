@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    <!-- The property fs.default.name is deprecated in Hadoop 2 (YARN) and has been replaced by fs.defaultFS -->
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://srx</value>
+    </property>
+    <!--Above property is set for deployment_type == HA -->
+    <property>
+        <name>ha.zookeeper.quorum</name>
+        <value>marxdn1.guavus.com:2181,marxdn2.guavus.com:2181,marxdn3.guavus.com:2181</value>
+    </property>
+    <!--Above property is set for deployment_type == HA -->
+    <property>  
+        <name>fs.trash.interval</name>  
+        <value>1440</value>  
+    </property>  
+    <property>  
+        <name>fs.trash.checkpoint.interval</name>  
+        <value>480</value>  
+    </property>  
+    <!-- HADOOP HTTPFS -->
+    <property>  
+        <name>hadoop.proxyuser.httpfs.hosts</name>  
+        <value>*</value>  
+    </property>  
+    <property>  
+        <name>hadoop.proxyuser.httpfs.groups</name>  
+        <value>*</value>  
+    </property>
+    <!-- HADOOP HTTPFS -->
+     <!-- mapred proxy user setting -->
+    <property>
+        <name>hadoop.proxyuser.mapred.hosts</name>
+        <value>*</value>
+    </property>
+    <property>
+        <name>hadoop.proxyuser.mapred.groups</name>
+        <value>*</value>
+    </property>
+</configuration>

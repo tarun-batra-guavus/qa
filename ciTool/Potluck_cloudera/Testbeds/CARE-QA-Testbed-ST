@@ -1,0 +1,31 @@
+# Format of nodes in a testbed
+# [HOSTNAME]
+# type = <comma separated list of node role in caps letter [NAMENODE,PSQL,HIVE,HMASTER,KAFKA-SCHEMA,KAFKA-CONNECT]>
+# ip = <IP Address>
+# password = <Password of the machine>
+
+
+[NN1]
+type = NAMENODE,PSQL,HMASTER,KAFKA-SCHEMA,KAFKA,AZKABAN,ZOOKEEPER,TOMCAT,TALEND,HIVE,KAFKA-CONNECT
+ip=192.168.113.188
+username=root
+password=root@123
+
+[DN1]
+type = DATANODE,HREGION,ZOOKEEPER
+ip=192.168.113.190
+username=root
+password=root@123
+
+[DN2]
+type = DATANODE,HREGION,ZOOKEEPER
+ip=192.168.192.126
+username=root
+password=root@123
+
+[DN3]
+type = DATANODE,HREGION
+ip=192.168.192.127
+username=root
+password=root@123
+

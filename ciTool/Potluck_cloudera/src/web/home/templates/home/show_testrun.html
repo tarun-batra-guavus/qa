@@ -1,0 +1,82 @@
+{% extends "base_site.html" %}
+{% load bootstrap3 %}
+
+{% block page_title %}Report{% endblock %}
+
+{% block page_body %}
+    <h1 class="text-center">Testsuite Execution Report</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-bordered pull-right" >
+                <tr>
+                    <th style="width:20%">Build</th>
+                    <td>{{ execution.build }}</td>
+                </tr>
+                <tr>
+                    <th>TestSuite</th>
+                    <td>{{ execution.suite }}</td>
+                </tr>
+                <tr>
+                    <th>TestBed</th>
+                    <td>{{ execution.testbed }}</td>
+                </tr>
+                <tr>
+                    <th>Image</th>
+                    <td>{{ execution.build.image_path }}</td>
+                </tr>
+                <tr>
+                    <th>Executed By</th>
+                    <td>{{ execution.user.username }}</td>
+                </tr>
+                <tr>
+                    <th>Actions</th>
+                    <td>
+                        <a data-confirm-navigation=true data-confirm-message="Do you really want to reschedule this testrun?" class="btn btn-primary btn-xs" href="{{ execution.get_reschedule_url }}">{% bootstrap_icon 'repeat' %} Reschedule Execution</a>
+                        <a class="btn btn-primary btn-xs" href="javascript: location.reload();" title="Refresh Report">{% bootstrap_icon 'refresh' %} Refresh Report</a>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="col-md-6">
+            <table class="table table-bordered pull-left" >
+                <tr><th colspan=2 class="text-center">Summary</th></tr>
+                <tr><td>Total Cases</td><td>{{ execution.total_count }}</td></tr>
+                <tr><td>Executed</td><td>{{ execution.executed_count }}</td></tr>
+                <tr><td>Pass Percent</td><td class="status_{{ execution.get_status_display|lower }}">{{ execution.pass_percent }}% ({{execution.pass_count}}/{{execution.total_count}})</td></tr>
+                <tr><td>Passed Cases</td><td>{{ execution.pass_count }}</td></tr>
+                <tr><td>Failed Cases</td><td>{{ execution.fail_count }}</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <h3 class="text-center">Testcases</h3>
+    <table class="table table-bordered">
+        <tr><th>Sr No.</th><th>Testcase</th><th>Status</th><th style='max-width:200px'>Failure Reason</th></tr>
+        {% for tc in execution.testcaseexecution_set.all %}
+            {% ifchanged tc.section %}
+                <tr>
+                    <th colspan="4" class="text-center info">{{ tc.section }}</th>
+                </tr>
+            {% endifchanged %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><a title="View Logs" href='{{ tc.get_logs_url }}'>{{ tc.tc_id }}</a></td>
+                {% if tc.get_state_display|lower == "completed" %}
+                    <td class="status_{{ tc.get_status_display|lower }}">{{ tc.get_status_display }}</td>
+                {% else %}
+                    <td class="state_{{ tc.get_state_display|lower }}">{{ tc.get_state_display }}</td>
+                    <script>
+                        // Refresh the page every 60 seconds to get the updated status
+                        setTimeout(function() {location.reload()}, 60000);
+                    </script>
+                {% endif %}
+                <td style='max-width:100px'>{{ tc.remarks|default:"" }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h3 class="text-center">Logs of Test Execution</h3>
+    <pre class="well pre-scrollable harness-logs">{{ execution.harness_output }}</pre>
+
+{% endblock %}

@@ -1,0 +1,2 @@
+#role,command,exit_criterion
+namenode::::/data/deepanshu/schedule.sh edrflowjobs 06/28/17 9,40,am,UTC 192.168.113.191::::yes

@@ -1,0 +1,5 @@
+[mrx]
+baseurl = http://kite.ggn.in.guavus.com/projects/mrx/
+enabled = 1
+gpgcheck = 0
+name = MRX Repo

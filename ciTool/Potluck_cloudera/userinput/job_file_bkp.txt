@@ -1,0 +1,4 @@
+#Job_name,command to stop,Role
+DME,com.guavus.reflex.marketing.dme.job.DMEStreamingJob,datanode
+DME1,com1.guavus.reflex.marketing.dme.job.DMEStreamingJob,datanode
+DME2,com2.guavus.reflex,namenode

@@ -1,0 +1,8 @@
+<suite>
+    <MailTo>priyanka.gupta@guavus.com</MailTo>
+    <section name="TALEND">
+        <testcase description="Verify talend configurations is same on master and standby nodes">
+            <script>solution/CARE/Sanity/verify_systemd_config.py</script>
+        </testcase>
+    </section>
+</suite>

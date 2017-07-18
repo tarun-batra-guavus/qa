@@ -1,0 +1,13 @@
+<suite>
+    <MailTo>priyanka.gupta@guavus.com</MailTo>
+    <section name="REDIS">
+        <testcase description="Verify redis configurations are same on master and standby nodes">
+            <script>solution/CARE/Sanity/verify_redis_config.py</script>
+        </testcase>
+    </section>
+    <section name="REDIS">
+        <testcase description="Verify redis process is running on datanodes">
+            <script>solution/CARE/Sanity/check_redis_process.py</script>
+        </testcase>
+    </section>
+</suite>

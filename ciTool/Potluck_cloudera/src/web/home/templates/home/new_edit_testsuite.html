@@ -1,0 +1,81 @@
+{% extends "base_site.html" %}
+{% load staticfiles bootstrap3 %}
+
+{% block extrahead %}
+    <script src="{% static 'js/jquery.formset.js' %}"></script>
+    <script src="{% static "js/jquery-ui-1.10.4.custom.min.js" %}"></script>
+{% endblock %}
+
+{% block page_title %}
+    {% if is_edit %}
+        Edit a Testsuite
+    {% else %}
+        Create a New Testsuite
+    {% endif %}
+{% endblock %}
+
+{% block page_body %}
+    <H1 class="text-center">
+        {% if is_edit %}
+            Edit a Testsuite
+        {% else %}
+            Create a New Testsuite
+        {% endif %}
+    </H1>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <form action="." method="POST" class="form-inline new-edit-testsuite" role="form">
+                {% csrf_token %}
+                {% bootstrap_form testsuite_form layout="horizontal" label_class="col-md-4"%}
+                <hr>
+                {% bootstrap_formset formset layout="inline" label_class="sr-only" container_class="sortable" form_prefix="<span class='sort-handle' title='Re-order'><span class='glyphicon glyphicon-sort'></span></span>"%}
+                {% buttons %}
+                    <button type="submit" class="btn btn-primary">
+                        {% bootstrap_icon "ok" %} Save
+                    </button>
+                {% endbuttons %}
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-muted">
+                <br/>
+                Notes:<br/>
+                * If a section name is left empty, the script will be included in the previous section
+            </div>
+        </div>
+    </div>
+    <script>
+        function update_indices(parent) {
+            parent.find('input.sort-position').each(function() {           
+                var parent_index = $(this).parents('li.formset-form').index();
+                $(this).val( parent_index );
+            });
+        }
+
+        var $sortable = $(".sortable").sortable({
+            handle : '.sort-handle',
+            items : 'li.formset-form',
+            update : function () { 
+                update_indices($(this));
+            }
+        });
+
+        $('.formset-form').formset({
+            deleteCssClass : 'btn btn-xs btn-primary',
+            deleteText : '<span class="glyphicon glyphicon-minus"></span>',
+            addText : '<span class="glyphicon glyphicon-plus"></span> Add a script',
+            addCssClass : 'btn btn-primary',
+            prefix: 'testcase',
+            added: function() {
+                update_indices($sortable);
+            },
+            removed: function() {
+                update_indices($sortable);
+            }
+        });
+        update_indices($sortable);
+
+    </script>
+{% endblock %}

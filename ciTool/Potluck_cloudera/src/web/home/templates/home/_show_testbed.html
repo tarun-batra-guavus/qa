@@ -1,0 +1,18 @@
+{% load potluck %}
+
+<h3 class=text-center>Testbed contents</h3>
+<h4 class=text-center>{{ testbed_name|title }}</h4>
+<table class="table table-bordered">
+    <tr>
+        <th>Node Alias</th>
+        <th>IP Address</th>
+        <th>Type</th>
+    </tr>
+    {% for node in testbed.values %}
+        <tr>
+            <td>{{ node.alias }}</td>
+            <td>{{ node.ip }}</td>
+            <td>{{ node.type|join:", " }}</td>
+        </tr>
+    {% endfor %}
+</table>

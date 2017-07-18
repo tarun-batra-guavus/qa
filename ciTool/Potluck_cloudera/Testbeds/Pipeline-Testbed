@@ -1,0 +1,15 @@
+# Format of nodes in a testbed
+# [HOSTNAME]
+# type = <comma separated list of types [NameNode, DataNode, Collector, Rubix, Rge, Insta]>
+# ip = <IP Address>
+# password = <Password of the machine>
+
+[Node1]
+type = refinery,TM
+ip=192.168.162.119
+password=root@123
+
+[Node2]
+type = pump,TM
+ip=192.168.162.129
+password=root@123

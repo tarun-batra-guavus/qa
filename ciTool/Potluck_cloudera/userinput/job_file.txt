@@ -1,0 +1,4 @@
+#Job_name,command to stop,Role,exit_criterion
+logdownloader::::curl -k --get --data "session.id=`curl -k -X POST --data "action=login&username=azkaban&password=azkaban" http://192.168.113.191:8888 |grep "session.id" |cut -d'"' -f4`&ajax=cancelFlow&execid=9641" http://192.168.113.191:8888/executor::::namenode::::yes
+rpm::::yum -y remove reflex-datafactory-5.1.rc1-1.el6.x86_64::::namenode::::yes
+rpm1::::yum -y remove reflex-datafactory-5.1.rc1-1.el6.x86_64::::datanode::::yes

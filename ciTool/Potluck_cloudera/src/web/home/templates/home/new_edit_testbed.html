@@ -1,0 +1,49 @@
+{% extends "base_site.html" %}
+{% load staticfiles bootstrap3 %}
+
+{% block extrahead %}
+    <script src="{% static 'js/jquery.formset.js' %}"></script>
+{% endblock %}
+
+{% block page_title %}
+    {% if is_edit %}
+        Edit a Testbed
+    {% else %}
+        Create a New Testbed
+    {% endif %}
+{% endblock %}
+
+
+{% block page_body %}
+    <H1 class="text-center">
+        {% if is_edit %}
+            Edit a Testbed
+        {% else %}
+            Create a New Testbed
+        {% endif %}
+    </H1>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <form action="." method="POST" class="form-inline" role="form">
+                {% csrf_token %}
+                {% bootstrap_form testbed_form layout="horizontal" label_class="col-md-4"%}
+                <hr>
+                {% bootstrap_formset formset layout="inline" label_class="sr-only" %}
+                {% buttons %}
+                    <button type="submit" class="btn btn-primary">
+                        {% bootstrap_icon "ok" %} Save
+                    </button>
+                {% endbuttons %}
+            </form>
+        </div>
+    </div>
+    <script>
+        $('.formset-form').formset({
+            deleteCssClass : 'btn btn-xs btn-primary',
+            deleteText : '<span class="glyphicon glyphicon-minus"></span>',
+            addText : '<span class="glyphicon glyphicon-plus"></span> Add a Node',
+            addCssClass : 'btn btn-primary',
+            prefix: 'nodes'
+        });
+    </script>
+{% endblock %}

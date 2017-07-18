@@ -1,0 +1,7 @@
+#type of file,delimiter,file paths,Role 
+xml,,/opt/pipeline/pump/config/schemas/ComcastConfigTypes.xsd,pump
+xml,,/opt/pipeline/pump/config/schemas/PipelineConfigTypes.xsd,pump
+xml,,/opt/pipeline/pump/config/valve.xml,pump
+xml,,/opt/pipeline/refinery/config/schemas/ComcastConfigTypes.xsd,refinery
+xml,,/opt/pipeline/refinery/config/schemas/PipelineConfigTypes.xsd,refinery
+xml,,/opt/pipeline/refinery/config/valve.xml,refinery

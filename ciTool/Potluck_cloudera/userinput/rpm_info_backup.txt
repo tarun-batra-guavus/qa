@@ -1,0 +1,3 @@
+#Module,keyword found in rpm,exit_criterion
+namenode::::datafactory::::yes
+datanode::::datafactory::::yes

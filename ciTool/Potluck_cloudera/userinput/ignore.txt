@@ -1,0 +1,11 @@
+#This file has properties which can be ignored while computing the difference between configuration file among multiple nodes.So these properties difference will not be listed in difference file
+#Please provide property name separated by colon filename.For e.g if "host" is a property in azkacli.cfg file, then it's entry should be like : host:azkacli.cfg
+#Property:filename
+listeners:schema-registry.properties
+host.name:schema-registry.properties
+advertised.listeners:server.properties
+host:azkacli.cfg
+server.1:zoo.cfg
+server.2:zoo.cfg
+server.3:zoo.cfg
+yarn.resourcemanager.ha.id:yarn-site.xml

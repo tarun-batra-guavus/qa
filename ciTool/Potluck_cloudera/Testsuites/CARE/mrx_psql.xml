@@ -1,0 +1,8 @@
+<suite>    
+<MailTo>priyanka.gupta@guavus.com</MailTo>
+    <section name="HBASE">
+        <testcase description="Verify hbase shell is connecting">
+            <script>solution/CARE/Sanity/connect_hbase_shell.py</script>
+        </testcase>
+    </section>
+</suite>

@@ -1,0 +1,32 @@
+{% load potluck %}
+
+<h3 class=text-center>Testsuite contents</h3>
+<h4 class=text-center>{{ testsuite_name|title }}</h4>
+<table class="table table-bordered">
+    {% with counter=0 %}
+        {% for section in testsuite.sections %}
+            <tr class="info">
+                <th colspan=4 class="text-center">{{ section.name }}</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>Testcase Id</th>
+                <th>Source</th>
+                <th>Rule</th>
+            </tr>
+            {% for tc in section.testcases %}
+                <tr>
+                    <td>{{ forloop.counter|add:counter }}</td>
+                    <td>
+                        <a target="_blank" title="View Docs &amp; Script" href="{{ tc.script|docs_path }}">{{ tc.description }}</a>
+                    </td>
+                    <td>
+                        <a target="_blank" title="View Docs &amp; Source" href="{{ tc.script|docs_path }}">View Docs</a>
+                    </td>
+                    <td>{{ tc.rule|default:"" }}</td>
+                </tr>
+            {% endfor %}
+            {% incr "counter" section.testcases|length %}
+        {% endfor %}
+    {% endwith %}
+</table>

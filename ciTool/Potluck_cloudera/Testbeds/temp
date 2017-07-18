@@ -1,0 +1,71 @@
+# Format of nodes in a testbed
+# [HOSTNAME]
+# type = <comma separated list of types [NameNode, DataNode, Collector, Rubix, Rge, Insta]>
+# ip = <IP Address>
+# password = <Password of the machine>
+
+[NN2]
+type = namenode,TM
+ip=192.168.193.240
+password=admin@123
+
+
+
+[NN1]
+type = namenode,TM
+ip=192.168.193.236
+password=admin@123
+
+[RUBIX1]
+type = rubix,TM
+ip=192.168.193.247
+vip=192.168.193.245
+password=admin@123
+
+[RUBIX2]
+type = rubix,TM
+ip=192.168.193.248
+password=admin@123
+
+
+[INSTA1]
+type = insta,TM
+ip=192.168.193.234
+vip=192.168.193.244
+password=admin@123
+serviceport = 11111
+
+[INSTA2]
+type = insta,TM
+ip=192.168.193.235
+password=admin@123
+serviceport = 11111
+
+[DN1]
+type = datanode,TM
+ip=192.168.193.233
+password=admin@123
+
+[DN2]
+type = datanode,TM
+ip=192.168.193.232
+password=admin@123
+
+
+[DN3]
+type = datanode,TM
+ip=192.168.194.46
+password=admin@123
+
+[DN4]
+type = datanode,TM
+ip=192.168.194.47
+password=admin@123
+
+
+
+
+[PSQL1]
+type = PSQL,GMS
+ip=192.168.193.120
+password=admin@123

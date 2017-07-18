@@ -1,0 +1,16 @@
+# how to use potluck
+./harness --suite=SUITE --testbed=TESTBED --image=IMAGE
+
+#SUITE: mandatory argument
+please refer to Suites directory for sample suite information. Suites folder should have a human readable file called testsuitexxx , the contenbt of this file should be a list of test scripts where in each script corresponds to 1 test case.
+
+#TESTBED: mandatory argument
+please refer to TestBed directory for sample test bed information. TestBed folder should have a human redable file containing complete information about your test setup. like machine type, machine IP, password etc. These feilds have to be tab seperated.
+
+#IMAGE: optional argument
+image argument should be used only in case tester want to upgrade the test bed with new image. This image can be in form of http url or in form of scp command as expected by TM console. Please refer to image fetch ? at config terminal prompt for more details.
+Please note that while using upgrade potluck will upgrade all nodes present in your testbed.
+
+#Popular APIs and usage
+ 
+# See docs directory for detailed information

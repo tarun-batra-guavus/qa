@@ -1,0 +1,2 @@
+[COMMON]
+image_url=http://192.168.162.202/TEST/

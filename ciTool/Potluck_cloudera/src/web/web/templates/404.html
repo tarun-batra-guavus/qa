@@ -1,0 +1,13 @@
+{% extends "base_site.html" %}
+{% load potluck %}
+
+{% block page_container %}
+    <div class="jumbotron">
+        <div class="container text-center">
+            <h1>{% random_404 %}<br/><small>Page Not Found</small></h1>
+        </div>
+    </div>
+
+    {{ block.super }}
+{% endblock %}
+

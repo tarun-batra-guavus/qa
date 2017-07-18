@@ -1,0 +1,35 @@
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <tr>
+            <th>Sr No.</th>
+            <th>Build</th>
+            <th>TestBed</th>
+            <th>TestSuite</th>
+            <th>State</th>
+            <th>Started at</th>
+            <th>Completed at</th>
+            <th>Pass Percent</th>
+            <th></th>
+        </tr>
+        {% for execution in test_executions %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ execution.build }}</td>
+                <td>{{ execution.testbed }}</td>
+                <td>{{ execution.suite }}</td>
+                <td class="state_{{ execution.get_state_display|lower }}">{{ execution.get_state_display }}</td>
+                <td>{{ execution.started_at }}</td>
+                <td>{{ execution.completed_at|default:"N/A" }}</td>
+                {% if execution.get_state_display|lower == "completed" %}
+                    <td class="status_{{ execution.get_status_display|lower }}">{{ execution.pass_percent }}% ({{execution.pass_count}}/{{execution.total_count}})</td>
+                {% else %}
+                    <td>N/A</td>
+                {% endif %}
+
+                <td>
+                    <a class="btn btn-primary btn-xs" href='{{ execution.get_absolute_url }}'>View Report</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>

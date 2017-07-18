@@ -1,0 +1,15 @@
+#Role:filenames in colon seperated format
+HMASTER,/etc/hbase/conf/hbase-site.xml
+HMASTER,/etc/hbase/conf/hbase-env.sh
+HIVE,/etc/hive/conf/hive-site.xml
+KAFKA,/etc/kafka/confluent-3.1.1/etc/kafka/server1.properties
+KAFKA,/etc/kafka/confluent-3.1.1/etc/kafka/producer.properties
+KAFKA-CONNECT,/etc/kafka/confluent-3.1.1/test_parqent_binning_topic-hdfs.properties
+AZKABAN,/opt/azkaban/solo-server/conf/azkaban.properties
+AZKABAN,/etc/azkacli/azkacli.cfg
+AZKABAN,/etc/pgha-watchdog/watchdog.ini
+AZKABAN_PROJECT,/opt/azkaban/solo-server/projects/6.1
+ZOOKEEPER,/etc/zookeeper/conf/zoo.cfg
+TALEND,/opt/reflex/opt/standard-record/parser/parseCDR_parallel/parseCDR_parallel/cdr_parser.properties
+TALEND,/opt/reflex/opt/standard-record/parser/parseSMDR_parallel/parseSMDR_parallel/smdr_parser.properties
+#TALEND,/opt/reflex/opt/tms/apache-tomcat/apache-tomcat-7.0.42/conf/server.xml

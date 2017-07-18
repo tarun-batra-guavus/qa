@@ -1,0 +1,8 @@
+{% extends "base_site.html" %}
+
+{% block page_title %}Logs{% endblock %}
+
+{% block page_body %}
+    <h1 class="text-center">Test Execution Logs</h1>
+    <pre class="tc-logs">{% include "home/_show_logs.html" %}</pre>
+{% endblock %}

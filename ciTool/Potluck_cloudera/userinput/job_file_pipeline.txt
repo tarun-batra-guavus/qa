@@ -1,0 +1,9 @@
+#Job_name,command to stop,Role
+ntp,service ntpd stop,refinery
+ntp,service ntpd stop,pump
+syslog,service rsyslog stop,refinery
+syslog,service rsyslog stop,pump
+#pump,rpm -e PipelinePump-05.00.02-1.el7.centos.x86_64,pump
+#pump,yum -y install /opt/PipelinePump-05.00.00-4.el7.centos.x86_64.rpm,pump
+#refinery,rpm -e PipelineRefinery-05.00.01-1.el7.centos.x86_64,refinery
+#refinery,yum -y install /opt/PipelineRefinery-05.00.00-4.el7.centos.x86_64.rpm,refinery

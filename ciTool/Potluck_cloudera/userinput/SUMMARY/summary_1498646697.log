@@ -1,0 +1,2 @@
+#Stopping all job on respective nodes
+#Jobname,command,node,role,status 

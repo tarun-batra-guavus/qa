@@ -1,0 +1,2 @@
+#type of file,delimiter,file paths,Role,exit_criterion 
+::::::::/opt/mrx/globe/etc/extract.conf::::namenode::::no

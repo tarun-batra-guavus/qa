@@ -1,0 +1,34 @@
+{% extends "base_site.html" %}
+{% load bootstrap3 %}
+
+{% block page_title %}Edit Testsuite{% endblock %}
+
+{% block page_body %}
+    <h1 class="text-center">Edit a Test Suite</h1>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form action="{% url 'edit_testsuite' %}" method="GET" role="form" class="form">
+                <div class="form-group">
+                    <select class="form-control" name="testsuite" id="id_suite">
+                        {% for testsuite in user_testsuites %}
+                            <option value="{{ user.username}}/{{ testsuite }}">{{ testsuite|title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">
+                        {% bootstrap_icon "pencil" %} Edit
+                    </button>
+                    <a class="btn btn-primary btn-submit" href="{% url 'delete_testsuite' %}" data-confirm-navigation=true data-confirm-message="Are you sure you want to delete this test suite?">
+                        {% bootstrap_icon "remove" %} Delete
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div id="id_suite_contents"></div>
+        </div>
+    </div>
+{% endblock %}

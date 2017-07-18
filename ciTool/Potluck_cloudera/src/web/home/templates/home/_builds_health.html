@@ -1,0 +1,24 @@
+<h3 class="text-center">Build Health</h3>
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <tr>
+            <th style="width:50%">Build</th>
+            <th>Health</th>
+        </tr>
+        {% for build in builds %}
+            <tr>
+                <td>{{ build }}</td>
+                <td>
+                    <div class="progress progress-striped">
+                        <div class="progress-bar progress-bar-success" style="width: {{ build.pass_percent }}%">
+                            <span>{{ build.pass_percent }}%</span>
+                        </div>
+                        <div class="progress-bar progress-bar-danger" style="width: {{ build.fail_percent }}%">
+                            <span>{{ build.fail_percent }}%</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>

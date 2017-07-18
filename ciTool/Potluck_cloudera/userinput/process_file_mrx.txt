@@ -1,0 +1,2 @@
+#Service Name,Stop Command,Role,exit_criterion
+tomcat,systemctl stop tomcat.service,namenode,yes

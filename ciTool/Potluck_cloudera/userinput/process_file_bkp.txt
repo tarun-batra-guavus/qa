@@ -1,0 +1,15 @@
+#Service Name,Stop Command,Role
+Impala Server,systemctl stop impala-server.service,impala_server
+Impala Calalog,systemctl stop impala-catalog.service,impala_catalog
+Impala State Store,systemctl stop impala-state-store.service,impala_state_store
+Hive Metastore,systemctl stop hive-metastore.service,hive
+Spark History Server,systemctl stop spark-history-server.service,spark
+Sentry Store,systemctl stop sentry-store.service,sentry
+HBase Region Server,systemctl stop hbase-regionserver.service,hbase_region_server
+HBase Master,systemctl stop hbase-master.service,hbase_master
+YARN_resourcemanager,systemctl stop hadoop-yarn-resourcemanager.service,yarn_resourcemanager
+YARN_nodemanager,systemctl stop hadoop-yarn-nodemanager.service,yarn_nodemanager
+HDFS_namenode,systemctl stop hadoop-hdfs-namenode.service,hdfs_namenode
+HDFS_journalnode,systemctl stop hadoop-hdfs-journalnode.service,hdfs_journalnode
+HDFS_datanode,systemctl stop hadoop-hdfs-datanode.service,hdfs_datanode
+Zookeeper Server,systemctl stop zookeeper-server.service,zookeeper

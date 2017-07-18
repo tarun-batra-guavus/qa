@@ -1,0 +1,4 @@
+Server:File: Key: value -->NN1,schema-registry.properties,host.name,marxnn1.guavus.com
+Server:File: Key: value -->NN2,schema-registry.properties,host.name,marxnn2.guavus.com
+Server:File: Key: value -->NN1,schema-registry.properties,listeners,http://marxnn1.guavus.com:8081
+Server:File: Key: value -->NN2,schema-registry.properties,listeners,http://marxnn2.guavus.com:8081

@@ -1,0 +1,85 @@
+# Format of nodes in a testbed
+# [HOSTNAME]
+# type = <comma separated list of types [NameNode, DataNode, Collector, Rubix, Rge, Insta]>
+# ip = <IP Address>
+# password = <Password of the machine>
+
+
+[NN1]
+type = namenode,TM
+ip=192.168.162.33
+password=root@123
+
+[NN2]
+type = namenode,TM
+ip=192.168.162.32
+password=root@123
+
+[DN1]
+type = datanode,TM
+ip=192.168.194.69
+password=root@123
+
+[DN2]
+type = datanode,TM
+ip=192.168.194.25
+password=root@123
+
+[DN3]
+type = datanode,TM
+ip=192.168.194.167
+password=root@123
+
+[PSQL1]
+type = PSQL,TM
+ip=192.168.194.58
+password=root@123
+
+[HIVE1]
+type = HIVE,TM
+ip=192.168.194.58
+password=root@123
+
+[HMASTER1]
+type = HBASE,TM
+ip=192.168.194.58
+password=root@123
+shellpath = /usr/bin/hbase
+configpath = /etc/hbase/conf
+
+[HMASTER2]
+type = HBASE,TM
+ip=192.168.113.188
+password=root@123
+shellpath = /usr/bin/hbase
+configpath = /etc/hbase/conf
+
+[HREGION1]
+type = HBASE,TM
+ip=192.168.194.69
+password=root@123
+
+[HREGION2]
+type = HBASE,TM
+ip=192.168.194.25
+password=root@123
+
+[HREGION3]
+type = HBASE,TM
+ip=192.168.194.167
+password=root@123
+
+[KAFKA1]
+type = KAFKA,TM
+ip=192.168.194.58
+password=root@123
+
+[KAFKA2]
+type = KAFKA,TM
+ip=192.168.194.58
+password=root@123
+
+[KAFKA3]
+type = KAFKA,TM
+ip=192.168.194.58
+password=root@123

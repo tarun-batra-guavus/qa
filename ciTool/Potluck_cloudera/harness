@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Just a placeholder for the actual harness
+# An attempt of keeping all actual code in src directory
+
+dir=`dirname $0`
+python ${dir}/src/harness.py "$@"

@@ -1,0 +1,128 @@
+html {
+    height: 100%;
+}
+
+body {
+    @extend html;
+    padding-bottom: 0px;
+    padding-top: 50px;
+}
+
+.theme-dropdown {
+    .dropdown-menu {
+        display: block;
+        margin-bottom: 20px;
+        position: static;
+    }
+}
+
+.theme-showcase > p > .btn {
+    margin: 5px 0;
+}
+
+table {
+    tr {
+        th {
+            background-color: #F5F5F5;
+        }
+    }
+}
+
+.page-body-wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -4em;
+} 
+
+.push {
+    height: 4em;
+}
+
+#footer {
+    @extend .push;
+    background-color: #EEE;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #AAA;
+
+}
+
+/* Testsuite execution states */
+.state_enqueued {
+    color: orange;
+}
+.state_running {
+    color: blue;
+}
+.state_completed {
+    color: green;
+}
+
+/* Testcase status colors */
+.status_passed {
+    color: green;
+}
+.status_failed {
+    color: red;
+}
+.status_skipped {
+    color: orange;
+}
+
+/* Login page */
+#loginform {
+    #id_username {
+        border-bottom-left-radius : 0;
+        border-bottom-right-radius : 0;
+    }
+    #id_password {
+        border-top-left-radius : 0;
+        border-top-right-radius : 0;
+    }
+}
+
+.form-inline {
+    .delete-row {
+        margin-left: 5px;
+    }
+
+    .formset-form {
+        margin-bottom: 10px;
+    }
+
+    li, ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+}
+
+.sort-handle {
+    cursor: move;
+    font-size: 18px;
+    padding: 5px;
+    vertical-align: middle;
+}
+
+.new-edit-testsuite select.form-control {
+    max-width: 500px;
+}
+
+.harness-logs {
+    max-height: 750px;
+}
+
+.tc-logs {
+    .INFO {
+        color: green;
+    }
+    .FAILED, .ERROR {
+        color: red;
+    }
+    .WARNING {
+        color: orange;
+    }
+    .NOTICE {
+        color: pink;
+    }
+}

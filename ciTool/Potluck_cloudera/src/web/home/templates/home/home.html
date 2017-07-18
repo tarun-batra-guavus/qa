@@ -1,0 +1,26 @@
+{% extends "base_site.html" %}
+
+{% block page_container %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Potluck <small>In Regression We Trust</small></h1>
+            <p>An automation framework to upgrade builds on complete setup, running regression/sanity/functional test cases and then publish the results over intranet</p>
+            <p><a target="docs" href="/docs/index.html" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+        </div>
+    </div>
+
+    {{ block.super }}
+{% endblock %}
+
+{% block page_body %}
+    {% include "home/_builds_health.html" %}
+    <br/>
+
+    <h3 class="text-center">Latest 10 Test Executions</h3>
+    {% include "home/_test_executions.html" %}
+
+    <div class="pull-right">
+        <a href='{% url "testruns" %}'>View More >></a>
+    </div>
+{% endblock %}
+

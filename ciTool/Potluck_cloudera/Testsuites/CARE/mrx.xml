@@ -1,0 +1,153 @@
+<suite>
+    <MailTo>priyanka.gupta@guavus.com</MailTo>
+    <section name="AZKABAN">
+        <testcase description="Verify azkaban configurations on master and standby namenode">
+            <script>solution/CARE/Sanity/verify_azkaban_config.py</script>
+        </testcase>
+    </section>
+    <section name="AZKABAN">
+        <testcase description="Verify azkaban job configurations on master and standby namenode">
+            <script>solution/CARE/Sanity/verify_azkaban_job_config.py</script>
+        </testcase>
+    </section>
+    <section name="AZKABAN">
+        <testcase description="Verify azkaban process is running on master and standby namenode">
+            <script>solution/CARE/Sanity/check_azkaban_process.py</script>
+        </testcase>
+    </section>
+    <section name="ZOOKEEPER">
+        <testcase description="Verify zookeeeper configurations on zookeeper quorum nodes">
+            <script>solution/CARE/Sanity/verify_zookeeper_config.py</script>
+        </testcase>
+    </section>
+    <section name="ZOOKEEPER">
+        <testcase description="Verify zookeeeper process running  on zookeeper quorum nodes">
+            <script>solution/CARE/Sanity/check_zookeeper_process.py</script>
+        </testcase>
+    </section>
+    <section name="TOMCAT">
+        <testcase description="Verify tomcat process is running on master and standby nodes">
+            <script>solution/CARE/Sanity/check_tomcat_process.py</script>
+        </testcase>
+    </section>
+    <section name="LOADBALANCER">
+        <testcase description="Verify haproxy process is running on loadbalancer nodes">
+            <script>solution/CARE/Sanity/check_load_balancer_process.py</script>
+        </testcase>
+    </section>
+    <section name="ZKFC">
+        <testcase description="Verify zkfc and pgha_watchdog process is running on master and standby namenodes">
+            <script>solution/CARE/Sanity/check_system_process.py</script>
+        </testcase>
+    </section>
+    <section name="COROSYNC_PACEMAKER">
+        <testcase description="Verify corosync and pacemaker process is running on master and standby namenodes">
+            <script>solution/CARE/Sanity/check_corosync_pacemaker_process.py</script>
+        </testcase>
+    </section>
+    <section name="TALEND">
+        <testcase description="Verify talend configurations is same on master and standby nodes">
+            <script>solution/CARE/Sanity/verify_talend_config.py</script>
+        </testcase>
+    </section>
+    <section name="KAFKA">
+        <testcase description="Verify kafka configurations is same on master and standby nodes">
+            <script>solution/CARE/Sanity/verify_kafka_config.py</script>
+        </testcase>
+    </section>
+    <section name="KAFKA">
+        <testcase description="Verify kafka process is running on namenodes">
+            <script>solution/CARE/Sanity/check_kafka_process.py</script>
+        </testcase>
+    </section>
+    <section name="KAFKA-SCHEMA">
+        <testcase description="Verify kafka schema process is running on namenodes">
+            <script>solution/CARE/Sanity/check_kafka_schema_process.py</script>
+        </testcase>
+    </section>
+    <section name="HBASE">
+        <testcase description="Verify hbase configurations is same on master and standby nodes">
+            <script>solution/CARE/Sanity/verify_hbase_config.py</script>
+        </testcase>
+    </section>
+    <section name="HBASE">
+        <testcase description="Verify hbase process are running on master and standby nodes">
+            <script>solution/CARE/Sanity/check_hbase_process.py</script>
+        </testcase>
+    </section>
+    <section name="HBASE">
+        <testcase description="Verify hbase shell is connecting">
+            <script>solution/CARE/Sanity/connect_hbase_shell.py</script>
+        </testcase>
+    </section>
+    <section name="HIVE">
+        <testcase description="Verify hive configurations is same on master and standby nodes">
+            <script>solution/CARE/Sanity/verify_hive_config.py</script>
+        </testcase>
+    </section>
+    <section name="HIVE">
+        <testcase description="Verify hive process is running">
+            <script>solution/CARE/Sanity/check_hive_processes.py</script>
+        </testcase>
+    </section>
+    <section name="HIVE">
+        <testcase description="Verify connection to hive shell">
+            <script>solution/CARE/Sanity/connect_hive_shell.py</script>
+        </testcase>
+    </section>
+    <section name="REDIS">
+        <testcase description="Verify redis configurations are same on master and standby nodes">
+            <script>solution/CARE/Sanity/verify_redis_config.py</script>
+        </testcase>
+    </section>
+    <section name="REDIS">
+        <testcase description="Verify redis process is running on datanodes">
+            <script>solution/CARE/Sanity/check_redis_process.py</script>
+        </testcase>
+    </section>
+    <section name="HDFS">
+        <testcase description="Verify the number of total live nodes should be equal to the number of available nodes">
+            <script>core/hdfs/verify_datanode_status.py</script>
+        </testcase>
+    </section>
+    <section name="HDFS">
+        <testcase description="Verify that hdfs state is healthy">
+            <script>core/hdfs/hadoop_fsck_shell.py</script>
+        </testcase>
+    </section>
+    <section name="HDFS">
+        <testcase description="Verify that all hadoop-yarn process are running on master namenode are running.">
+            <script>core/hdfs/check_namenode_processes.py</script>
+        </testcase>
+    </section>
+    <section name="HDFS">
+        <testcase description="Verify that journalnode process is running on nodes.">
+            <script>core/hdfs/check_journalnode_processes.py</script>
+        </testcase>
+    </section>
+    <section name="HDFS">
+        <testcase description="Verify that all datanode processes are running on datanodes.">
+            <script>core/hdfs/check_datanode_processes.py</script>
+        </testcase>
+    </section>
+    <section name="HDFS">
+        <testcase description="Verify the hdfs/yarn configurations on master and standby namenode.">
+            <script>solution/CARE/Sanity/verify_hdfs_config.py</script>
+        </testcase>
+    </section>
+    <section name="IMPALA">
+        <testcase description="Verify that impala process is running on namenode and datanodes.">
+            <script>solution/CARE/Sanity/check_impala_processes.py</script>
+        </testcase>
+    </section>
+    <section name="PGSQL">
+        <testcase description="Verify that pgsql process is running on namenode and management node.">
+            <script>solution/CARE/Sanity/check_psql_processes.py</script>
+        </testcase>
+    </section>
+    <section name="GENERIC">
+        <testcase description="Verify that rpm version is same on all nodes.">
+            <script>solution/CARE/Sanity/check_rpm_version.py</script>
+        </testcase>
+    </section>
+</suite>

@@ -1,0 +1,5 @@
+[COMMON]
+image_url=http://kite.ggn.in.guavus.com/projects/mrx/
+delimiter=::::
+mode=fresh
+project=MARX5_1_RC1_new

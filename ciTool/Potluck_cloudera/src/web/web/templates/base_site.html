@@ -1,0 +1,67 @@
+{% load staticfiles bootstrap3 %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block page_title %}In Regression, We Trust{% endblock %} | Potluck</title>
+
+        <!-- Latest compiled and minified CSS -->
+        {% bootstrap_css %}
+        {% bootstrap_javascript True %}
+
+        <!-- Optional theme -->
+        <!-- 
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+        -->
+
+        {% block extrahead %}{% endblock %}
+
+        <link rel="stylesheet" href="{% static 'css/global.css' %}">
+        <script src="{% static 'js/global.js' %}"></script>
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+    </head>
+    <body role="document">
+        <!-- Modal -->
+        <div class="modal fade" id="confirm-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Confirm</h4>
+              </div>
+              <div class="modal-body"> </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                <a href="#" type="button" class="btn btn-primary">Yes</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% include "_navbar.html" %}
+
+        <div class="container">
+            {# Display django.contrib.messages as Bootstrap alerts #}
+            {% bootstrap_messages %}
+        </div>
+
+        {% block page_container %}
+            <div class="container page-body-wrapper" role="main">
+                {% block page_body %}{% endblock %}
+                <div class="push"></div>
+            </div>
+        {% endblock %}
+
+        <div id="footer" class="clearfix">
+            <div class="container text-center">
+                Contact <a href="mailto:sandeep.nanda@guavus.com">Potluck Team</a> for any issues and queries
+            </div>
+        </div>
+    </body>
+</html>
